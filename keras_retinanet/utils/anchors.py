@@ -26,7 +26,7 @@ class AnchorParameters:
     Args
         sizes   : List of sizes to use. Each size corresponds to one feature level.
         strides : List of strides to use. Each stride correspond to one feature level.
-        ratios  : List of ratios to use per location in a feature map.
+        ratios  : List of ratios to use per location in a feature map. height / width suposedly
         scales  : List of scales to use per location in a feature map.
     """
     def __init__(self, sizes, strides, ratios, scales):
@@ -43,9 +43,9 @@ class AnchorParameters:
 The default anchor parameters.
 """
 AnchorParameters.default = AnchorParameters(
-    sizes   = [16, 32, 64, 128, 256, 512],
+    sizes   = [32, 64, 128, 256, 512],
     strides = [8, 16, 32, 64, 128],
-    ratios  = np.array([0.5, 1, 2, 3, 4], keras.backend.floatx()),
+    ratios  = np.array([0.10, 0.27, 0.35, 1, 2], keras.backend.floatx()),
     scales  = np.array([2 ** 0, 2 ** (1.0 / 3.0), 2 ** (2.0 / 3.0)], keras.backend.floatx()),
 )
 
